@@ -11,4 +11,11 @@
     <string name="default_command">:FAKE_COMMAND</string>
     <string name="host">Host</string>
     <string name="port">Port</string>
+    <string name="name">Name</string>
+    <string name="requester">I am a requester. Match me with volunteers only.</string>
+    <string name="volunteer">I am a volunteer. Don&amp;apos;t match me with another volunteer</string>
+    <string name="neutral">I have no preference being a requester or a volunteer.</string>
+    <string name="preferences">Preferences</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
 </resources>

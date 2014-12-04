@@ -1,0 +1,8 @@
+1417664298436	Extracts string 'Name' into R.string.name
+1417664883673	Extracts string 'Name' into R.string.name
+1417664933927	Extracts string 'I am a requester. Match me with volunteers only.' into R.string.requester
+1417664955665	Extracts string 'I am a volunteer. Don&apos;t match me with another volunteer' into R.string.volunteer
+1417664974313	Extracts string 'I have no preference being a requester or a volunteer.' into R.string.neutral
+1417664989858	Extracts string 'Preferences' into R.string.preferences
+1417665001413	Extracts string 'From' into R.string.from
+1417665024472	Extracts string 'To' into R.string.to

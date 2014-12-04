@@ -36,7 +36,6 @@
         android:inputType="text"
         android:text=""
         android:textSize="26sp" >
-
         <requestFocus />
     </EditText>
 
@@ -49,7 +48,7 @@
         android:layout_marginLeft="19dp"
         android:layout_marginTop="64dp"
         android:padding="@dimen/padding"
-        android:text="Name"
+        android:text="@string/name"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -71,7 +70,7 @@
         android:layout_above="@+id/radio_volunteer"
         android:layout_alignLeft="@+id/radio_volunteer"
         android:onClick="onRadioButtonClicked"
-        android:text="I am a requester. Match me with volunteers only."
+        android:text="@string/requester"
         android:textSize="26sp" />
     <RadioButton
         android:id="@+id/radio_volunteer"
@@ -81,7 +80,7 @@
         android:layout_centerVertical="true"
         android:layout_below="@+id/radio_requester"
         android:onClick="onRadioButtonClicked"
-        android:text="I am a volunteer. Don&apos;t match me with another volunteer"
+        android:text="@string/volunteer"
         android:textSize="26sp" />
     <RadioButton
         android:id="@+id/radio_neutral"
@@ -90,7 +89,7 @@
         android:layout_below="@+id/radio_volunteer"
         android:layout_alignLeft="@+id/radio_requester"
         android:onClick="onRadioButtonClicked"
-        android:text="I have no preference being a requester or a volunteer." 
+        android:text="@string/neutral" 
         android:textSize="26sp"/>
 </RadioGroup>
 
@@ -103,7 +102,7 @@
         android:layout_marginLeft="19dp"
         android:layout_marginTop="30dp"
         android:padding="@dimen/padding"
-        android:text="Preferences"
+        android:text="@string/preferences"
         android:textSize="30sp"
         android:textStyle="bold" />
       
@@ -116,7 +115,7 @@
         android:layout_marginLeft="19dp"
         android:layout_marginTop="30dp"
         android:padding="@dimen/padding"
-        android:text="From"
+        android:text="@string/from"
         android:textSize="30sp"
         android:textStyle="bold" />
       
@@ -128,7 +127,7 @@
         android:layout_marginLeft="19dp"
         android:layout_marginTop="30dp"
         android:padding="@dimen/padding"
-        android:text="To"
+        android:text="@string/to"
         android:textSize="30sp"
         android:textStyle="bold" />
 
