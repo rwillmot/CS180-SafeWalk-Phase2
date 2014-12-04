@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/radio_volunteer"
         android:layout_alignLeft="@+id/radio_volunteer"
-        
+        android:onClick="onRadioButtonClicked"
         android:text="@string/requester"
         android:textSize="26sp" />
     <RadioButton
@@ -79,8 +79,8 @@
         android:layout_alignRight="@+id/tv_name"
         android:layout_centerVertical="true"
         android:layout_below="@+id/radio_requester"
-        
-        android:text="@string/Volunteer"
+        android:onClick="onRadioButtonClicked"
+        android:text="I am a volunteer. Don't match me with another volunteer"
         android:textSize="26sp" />
     <RadioButton
         android:id="@+id/radio_neutral"
@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/radio_volunteer"
         android:layout_alignLeft="@+id/radio_requester"
-        
+        android:onClick="onRadioButtonClicked"
         android:text="@string/neutral" 
         android:textSize="26sp"/>
 </RadioGroup>

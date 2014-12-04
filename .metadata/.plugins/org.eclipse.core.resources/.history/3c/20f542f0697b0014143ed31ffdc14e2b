@@ -113,7 +113,7 @@ public class MainActivity extends Activity implements SubmitCallbackListener,
 	@Override
 	public void onSubmit() {
 		// TODO: Get client info via client fragment
-		String name = this.clientFragment.getName();
+        String name = this.clientFragment.getName();
 		// Server info
 		String host = this.serverFragment.getHost(getResources().getString(
 				R.string.default_host));
@@ -134,7 +134,7 @@ public class MainActivity extends Activity implements SubmitCallbackListener,
 		// TODO: You may want additional parameters here if you tailor
 		// the match fragment
 		MatchFragment frag = MatchFragment.newInstance(this, host, port,
-				command, name);
+				command);
 
 		ft.replace(R.id.fl_main, frag);
 		ft.commit();

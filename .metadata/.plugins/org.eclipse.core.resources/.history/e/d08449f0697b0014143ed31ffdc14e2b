@@ -44,7 +44,7 @@ public class MatchFragment extends Fragment implements OnClickListener {
 	private String command;
 
 	// TODO: your own class fields here
-    private String name;
+
 	// Class methods
 	/**
 	 * Creates a MatchFragment
@@ -65,15 +65,13 @@ public class MatchFragment extends Fragment implements OnClickListener {
 	// TODO: you can add more parameters, follow the way we did it.
 	// ** DO NOT CREATE A CONSTRUCTOR FOR MatchFragment **
 	public static MatchFragment newInstance(StartOverCallbackListener activity,
-			String host, int port, String command, String name) {
+			String host, int port, String command) {
 		MatchFragment f = new MatchFragment();
 
 		f.activity = activity;
 		f.host = host;
 		f.port = port;
 		f.command = command;
-		
-		f.name = name;
 
 		return f;
 	}
