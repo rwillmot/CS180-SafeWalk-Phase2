@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;edu.purdue.YL&apos; to &apos;edu.purdue.rwillmo&apos;&#x0D;&#x0A;- Original project: &apos;SafeWalkAndroidClient&apos;&#x0D;&#x0A;- Original element: &apos;SafeWalkAndroidClient/src/edu.purdue.YL&apos;&#x0D;&#x0A;- Renamed element: &apos;SafeWalkAndroidClient/src/edu.purdue.rwillmo&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings&#x0D;&#x0A;- Rename subpackages of the package" description="Rename package &apos;edu.purdue.YL&apos;" flags="589830" hierarchical="true" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;edu.purdue.YL" name="edu.purdue.rwillmo" qualified="false" references="true" stamp="1417241518302" textual="false" version="1.0"/>
+</session>
