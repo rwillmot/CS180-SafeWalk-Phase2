@@ -13,10 +13,24 @@
     <string name="port">Port</string>
     <string name="name">Name</string>
     <string name="requester">I am a requester. Match me with volunteers only.</string>
-    <string name="volunteer">I am a volunteer. Don\'t match me with another volunteer&amp;apos;t match me with another volunteer</string>
     <string name="neutral">I have no preference being a requester or a volunteer.</string>
     <string name="preferences">Preferences</string>
     <string name="from">From</string>
     <string name="to">To</string>
     <string name="Volunteer">I am a volunteer. Don\'t match me with another volunteer</string>
+	<string-array name="to_locations">
+        <item>CL50 - Class of 1950 Lecture Hall</item>
+        <item>EE - Electrical Engineering Building</item>
+        <item>LWSN - Lawson Computer Science Building</item>
+        <item>PMU - Purdue Memorial Union</item>
+        <item>PUSH - Purdue Univeristy Student Health Center</item>
+        <item>* - Any Location</item>
+    </string-array>
+    <string-array name="from_locations">
+        <item>CL50 - Class of 1950 Lecture Hall</item>
+        <item>EE - Electrical Engineering Building</item>
+        <item>LWSN - Lawson Computer Science Building</item>
+        <item>PMU - Purdue Memorial Union</item>
+        <item>PUSH - Purdue Univeristy Student Health Center</item>
+    </string-array>
 </resources>
