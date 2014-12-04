@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -17,21 +19,19 @@ import android.widget.RadioGroup;
  *
  * @author YL
  */
-public class ClientFragment extends Fragment implements OnClickListener {
+public class ClientFragment extends Fragment implements OnClickListener,  OnItemSelectedListener{
 
 	/**
 	 * Activity which have to receive callbacks.
 	 */
 	private SubmitCallbackListener activity;
 	
-	private EditText name;
-	
-	private RadioGroup radioGroup;
-	
-	private String protocol;
-	
+	private EditText name;	
+	private RadioGroup radioGroup;	
+	private String protocol;	
 	private Button submit;
-
+	private String toLocation;
+	private String fromLocation;
 	/**
 	 * Creates a ProfileFragment
 	 * 
@@ -68,23 +68,6 @@ public class ClientFragment extends Fragment implements OnClickListener {
 		 * Button.
 		 */
 		view.findViewById(R.id.bu_submit).setOnClickListener(this);
-        
-		// Adds radio listener
-		radioGroup = (RadioGroup) view.findViewById(R.id.radioGroup1);
-		view.findViewById(R.id.bu_submit).setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// get selected radio button from radioGroup
-				int selectedId = radioGroup.getCheckedRadioButtonId();
-				if (selectedId == R.id.radio_neutral) {
-					protocol = "0";
-				} else if (selectedId == R.id.radio_requester) {
-					protocol = "1";
-				} else if (selectedId == R.id.radio_volunteer) {
-					protocol = "2";
-				}
-			}
-		});
 		
 		// TODO: import your Views from the layout here. See example in
 		// ServerFragment.
@@ -98,6 +81,20 @@ public class ClientFragment extends Fragment implements OnClickListener {
 		return this.name != null ? name.getText().toString() : "Muhammad Lee";
 		
 	}
+	
+	// Listener methods for spinners
+	public void onItemSelected(AdapterView<?> parent, View view, 
+            int pos, long id) {
+        if (id == R.id.from_spinner) {
+        	fromLocation = parent.getItemAtPosition(pos).toString();
+        } else {
+        	toLocation = parent.getItemAtPosition(pos).toString();
+        }
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Nothing Happens
+    }
 	
 	/**
 	 * Callback function for the OnClickListener interface.
