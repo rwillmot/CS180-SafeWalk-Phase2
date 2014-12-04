@@ -114,11 +114,19 @@ public class ClientFragment extends Fragment implements OnClickListener,
 		return this.name != null ? name.getText().toString() : "Muhammad Lee";
 
 	}
+	
+	public String getToLocation() {
+		return this.toLocation;
+	}
+	
+	public String getFromLocation() {
+		return this.fromLocation;
+	}
 
 	// Listener methods for spinners
 	public void onItemSelected(AdapterView<?> parent, View view, int pos,
 			long id) {
-		if (id == R.id.from_spinner) {
+		if (parent.getId() == R.id.from_spinner) {
 			fromLocation = parent.getItemAtPosition(pos).toString();
 		} else {
 			toLocation = parent.getItemAtPosition(pos).toString();
