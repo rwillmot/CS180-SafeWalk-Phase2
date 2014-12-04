@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements SubmitCallbackListener,
 		StartOverCallbackListener {
@@ -31,6 +32,8 @@ public class MainActivity extends Activity implements SubmitCallbackListener,
 	private Button left;
 	private Button right;
 	private TextView title;
+	
+	private String protocol;
 
 	/**
 	 * Called once the activity is created.
@@ -114,12 +117,22 @@ public class MainActivity extends Activity implements SubmitCallbackListener,
 	public void onSubmit() {
 		// TODO: Get client info via client fragment
 		String name = this.clientFragment.getName();
+		String toLocation = this.clientFragment.getToLocation();
+		String fromLocation = this.clientFragment.getFromLocation();
 		// Server info
 		String host = this.serverFragment.getHost(getResources().getString(
 				R.string.default_host));
 		int port = this.serverFragment.getPort(Integer.parseInt(getResources()
 				.getString(R.string.default_port)));
-		// TODO: sanity check the results of the previous two dialogs
+		
+		// Error check the locations
+		if (toLocation.substring(0, 1).equals("*") && !protocol.equals("2")) {
+			// Output error
+		}
+		if (toLocation.equals(fromLocation)) {
+			// Output error
+		}
+		
 
 		// TODO: Need to get command from client fragment
 		String command = this.getResources()
@@ -147,6 +160,19 @@ public class MainActivity extends Activity implements SubmitCallbackListener,
 	@Override
 	public void onStartOver() {
 		onRightClick(null);
+	}
+	
+	// Listener method for radio button click
+	public void onRadioButtonClicked(View radioButton) {
+		// get selected radio button from radioGroup
+		int selectedId = radioButton.getId();
+		if (selectedId == R.id.radio_neutral) {
+			protocol = "0";
+		} else if (selectedId == R.id.radio_requester) {
+			protocol = "1";
+		} else if (selectedId == R.id.radio_volunteer) {
+			protocol = "2";
+		}
 	}
 
 }
