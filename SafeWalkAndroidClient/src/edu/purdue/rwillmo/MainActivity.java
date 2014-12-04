@@ -1,6 +1,5 @@
 package edu.purdue.rwillmo;
-// Eclipse Git test
-// Test number 2
+
 import edu.purdue.rwillmo.R;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -114,7 +113,7 @@ public class MainActivity extends Activity implements SubmitCallbackListener,
 	@Override
 	public void onSubmit() {
 		// TODO: Get client info via client fragment
-        String name = this.clientFragment.getName();
+		String name = this.clientFragment.getName();
 		// Server info
 		String host = this.serverFragment.getHost(getResources().getString(
 				R.string.default_host));
