@@ -95,9 +95,9 @@ public class ClientFragment extends Fragment implements OnClickListener,
 		Spinner toSpinner = (Spinner) view.findViewById(R.id.to_spinner);
 		// Create an ArrayAdapter using the string array and a default spinner
 		// layout
-		ArrayAdapter<CharSequence> toAdapter = ArrayAdapter
-				.createFromResource(view.getContext(), R.array.to_locations,
-						android.R.layout.simple_spinner_item);
+		ArrayAdapter<CharSequence> toAdapter = ArrayAdapter.createFromResource(
+				view.getContext(), R.array.to_locations,
+				android.R.layout.simple_spinner_item);
 		// Specify the layout to use when the list of choices appears
 		toAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -111,14 +111,14 @@ public class ClientFragment extends Fragment implements OnClickListener,
 
 	public String getName() {
 		System.out.println(this.name);
-		return this.name != null ? name.getText().toString() : "Muhammad Lee";
+		return this.name.getText().toString();
 
 	}
-	
+
 	public String getToLocation() {
 		return this.toLocation;
 	}
-	
+
 	public String getFromLocation() {
 		return this.fromLocation;
 	}
