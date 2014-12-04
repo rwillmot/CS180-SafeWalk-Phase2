@@ -32,7 +32,7 @@ public class MainActivity extends Activity implements SubmitCallbackListener,
 	private Button left;
 	private Button right;
 	private TextView title;
-	
+
 	private String protocol;
 
 	/**
@@ -117,14 +117,16 @@ public class MainActivity extends Activity implements SubmitCallbackListener,
 	public void onSubmit() {
 		// TODO: Get client info via client fragment
 		String name = this.clientFragment.getName();
-		String toLocation = this.clientFragment.getToLocation();
-		String fromLocation = this.clientFragment.getFromLocation();
+		String toLocation = this.clientFragment.getToLocation().substring(0,
+				this.clientFragment.getToLocation().indexOf(" "));
+		String fromLocation = this.clientFragment.getFromLocation().substring(
+				0, this.clientFragment.getFromLocation().indexOf(" "));
 		// Server info
 		String host = this.serverFragment.getHost(getResources().getString(
 				R.string.default_host));
 		int port = this.serverFragment.getPort(Integer.parseInt(getResources()
 				.getString(R.string.default_port)));
-		
+
 		// Error check the locations
 		if (toLocation.substring(0, 1).equals("*") && !protocol.equals("2")) {
 			// Output error
@@ -132,7 +134,11 @@ public class MainActivity extends Activity implements SubmitCallbackListener,
 		if (toLocation.equals(fromLocation)) {
 			// Output error
 		}
-		
+
+		Toast.makeText(
+				getApplication(),
+				"[ " + name + "," + fromLocation + "," + toLocation + ","
+						+ protocol + " ]", Toast.LENGTH_LONG).show();
 
 		// TODO: Need to get command from client fragment
 		String command = this.getResources()
@@ -161,7 +167,7 @@ public class MainActivity extends Activity implements SubmitCallbackListener,
 	public void onStartOver() {
 		onRightClick(null);
 	}
-	
+
 	// Listener method for radio button click
 	public void onRadioButtonClicked(View radioButton) {
 		// get selected radio button from radioGroup
