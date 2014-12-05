@@ -184,7 +184,7 @@ public class MainActivity extends Activity implements SubmitCallbackListener,
 			// TODO: You may want additional parameters here if you tailor
 			// the match fragment
 			MatchFragment frag = MatchFragment.newInstance(this, host, port,
-					command, name);
+					command, name, toLocation, fromLocation, protocol);
 
 			ft.replace(R.id.fl_main, frag);
 			ft.commit();

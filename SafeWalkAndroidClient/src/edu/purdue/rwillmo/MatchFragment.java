@@ -1,6 +1,14 @@
 package edu.purdue.rwillmo;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
 import edu.purdue.rwillmo.R;
 import android.app.Fragment;
@@ -44,7 +52,12 @@ public class MatchFragment extends Fragment implements OnClickListener {
 	private String command;
 
 	// TODO: your own class fields here
-    private String name;
+	private String name;
+	private String to;
+	private String from;
+	private String protocol;
+	private String in;
+
 	// Class methods
 	/**
 	 * Creates a MatchFragment
@@ -65,15 +78,19 @@ public class MatchFragment extends Fragment implements OnClickListener {
 	// TODO: you can add more parameters, follow the way we did it.
 	// ** DO NOT CREATE A CONSTRUCTOR FOR MatchFragment **
 	public static MatchFragment newInstance(StartOverCallbackListener activity,
-			String host, int port, String command, String name) {
+			String host, int port, String command, String name, String to,
+			String from, String protocol) {
 		MatchFragment f = new MatchFragment();
 
 		f.activity = activity;
 		f.host = host;
 		f.port = port;
 		f.command = command;
-		
+
 		f.name = name;
+		f.to = to;
+		f.from = from;
+		f.protocol = protocol;
 
 		return f;
 	}
@@ -143,6 +160,28 @@ public class MatchFragment extends Fragment implements OnClickListener {
 			/**
 			 * TODO: Your Client code here.
 			 */
+			try {
+				Socket s = new Socket(host, port);
+				PrintWriter pw = new PrintWriter(new BufferedWriter(
+						new OutputStreamWriter(s.getOutputStream())), true);
+				pw.println(name + "," + from + "," + to + "," + protocol);
+				BufferedReader br = new BufferedReader(new InputStreamReader(
+						s.getInputStream()));
+				while(true) {
+					in = br.readLine();
+					if (in.startsWith("RESPONSE: ")) {
+						pw.println(":ACK");
+						String[] tokens = in.split(",");
+					} else if (in.startsWith("ERROR")) {
+					}
+					break;
+				}
+				pw.close();
+				br.close();
+				s.close();
+			} catch (UnknownHostException e) {
+			} catch (IOException e) {
+			}
 			Log.d(DEBUG_TAG, String
 					.format("The Server at the address %s uses the port %d",
 							host, port));
@@ -152,8 +191,9 @@ public class MatchFragment extends Fragment implements OnClickListener {
 
 			return "";
 		}
+
 		public void close() {
-                    // TODO: Clean up the client
+			// TODO: Clean up the client
 		}
 
 		/**
