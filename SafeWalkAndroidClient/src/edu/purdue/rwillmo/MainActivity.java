@@ -4,7 +4,9 @@ import edu.purdue.rwillmo.R;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -127,36 +129,66 @@ public class MainActivity extends Activity implements SubmitCallbackListener,
 		int port = this.serverFragment.getPort(Integer.parseInt(getResources()
 				.getString(R.string.default_port)));
 
-		// Error check the locations
-		if (toLocation.substring(0, 1).equals("*") && !protocol.equals("2")) {
-			// Output error
+		if (name.contains(",")
+				|| name.equals("")
+				|| host.equals("")
+				|| host.contains(" ")
+				|| port < 1
+				|| port > 65535
+				|| (toLocation.substring(0, 1).equals("*") && !protocol
+						.equals("2")) || toLocation.equals(fromLocation)) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			if (name.contains(","))
+				builder.setMessage("ERROR: Your name cannot contain a comma.");
+			else if (name.equals(""))
+				builder.setMessage("ERROR: You must input a name.");
+			else if (host.equals(""))
+				builder.setMessage("ERROR: Host field empty.");
+			else if (host.contains(" "))
+				builder.setMessage("ERROR: Host field cannot contain a space.");
+			else if (port < 1 || port > 65535)
+				builder.setMessage("ERROR: Port number must be between 1 and 65535.");
+			else if (toLocation.substring(0, 1).equals("*")
+					&& !protocol.equals("2"))
+				builder.setMessage("ERROR: Must be a volunteer to request * as TO location.");
+			else if (toLocation.equals(fromLocation))
+				builder.setMessage("ERROR: FROM and TO locations cannot be the same.");
+			builder.setTitle("INPUT ERROR");
+			builder.setIcon(android.R.drawable.ic_dialog_alert);
+			builder.setPositiveButton("Accept",
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
+
+							dialog.cancel();
+						}
+					});
+			AlertDialog alert = builder.create();
+			alert.setCanceledOnTouchOutside(false);
+			alert.show();
+		} else {
+			Toast.makeText(
+					getApplication(),
+					"[ " + name + "," + fromLocation + "," + toLocation + ","
+							+ protocol + " ]", Toast.LENGTH_LONG).show();
+
+			// TODO: Need to get command from client fragment
+			String command = this.getResources().getString(
+					R.string.default_command);
+
+			FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+			this.title.setText(getResources().getString(R.string.match));
+			this.left.setVisibility(View.INVISIBLE);
+			this.right.setVisibility(View.INVISIBLE);
+
+			// TODO: You may want additional parameters here if you tailor
+			// the match fragment
+			MatchFragment frag = MatchFragment.newInstance(this, host, port,
+					command, name);
+
+			ft.replace(R.id.fl_main, frag);
+			ft.commit();
 		}
-		if (toLocation.equals(fromLocation)) {
-			// Output error
-		}
-
-		Toast.makeText(
-				getApplication(),
-				"[ " + name + "," + fromLocation + "," + toLocation + ","
-						+ protocol + " ]", Toast.LENGTH_LONG).show();
-
-		// TODO: Need to get command from client fragment
-		String command = this.getResources()
-				.getString(R.string.default_command);
-
-		FragmentTransaction ft = getFragmentManager().beginTransaction();
-
-		this.title.setText(getResources().getString(R.string.match));
-		this.left.setVisibility(View.INVISIBLE);
-		this.right.setVisibility(View.INVISIBLE);
-
-		// TODO: You may want additional parameters here if you tailor
-		// the match fragment
-		MatchFragment frag = MatchFragment.newInstance(this, host, port,
-				command, name);
-
-		ft.replace(R.id.fl_main, frag);
-		ft.commit();
 	}
 
 	/**

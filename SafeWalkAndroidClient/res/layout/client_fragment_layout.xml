@@ -137,15 +137,13 @@
          android:layout_height="wrap_content"
          android:layout_alignLeft="@+id/et_to"
          android:layout_below="@+id/et_to"
-         android:layout_marginBottom="10dp" 
-         android:entries="@array/to_locations" />
+         android:layout_marginBottom="10dp" />
 
      <Spinner
          android:id="@+id/from_spinner"
          android:layout_width="fill_parent"
          android:layout_height="wrap_content"
          android:layout_alignLeft="@+id/et_from"
-         android:layout_below="@+id/et_from"
-         android:entries="@array/from_locations" />
+         android:layout_below="@+id/et_from" />
       
 </RelativeLayout>
