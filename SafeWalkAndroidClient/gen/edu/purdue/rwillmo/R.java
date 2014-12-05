@@ -55,21 +55,28 @@ public final class R {
         public static final int bu_start_over=0x7f0a0010;
         public static final int bu_submit=0x7f0a0004;
         public static final int et_from=0x7f0a000c;
-        public static final int et_host=0x7f0a0012;
+        public static final int et_host=0x7f0a0019;
         public static final int et_name=0x7f0a0006;
-        public static final int et_port=0x7f0a0014;
+        public static final int et_port=0x7f0a001b;
         public static final int et_preferences=0x7f0a0008;
         public static final int et_to=0x7f0a000d;
         public static final int fl_main=0x7f0a0003;
+        public static final int from_match=0x7f0a0014;
+        public static final int from_name=0x7f0a0015;
         public static final int from_spinner=0x7f0a000e;
+        public static final int output_table=0x7f0a0011;
+        public static final int partner=0x7f0a0012;
+        public static final int partner_name=0x7f0a0013;
         public static final int radioGroup1=0x7f0a0007;
         public static final int radio_neutral=0x7f0a000b;
         public static final int radio_requester=0x7f0a0009;
         public static final int radio_volunteer=0x7f0a000a;
+        public static final int to_match=0x7f0a0016;
+        public static final int to_name=0x7f0a0017;
         public static final int to_spinner=0x7f0a000f;
-        public static final int tv_host=0x7f0a0011;
+        public static final int tv_host=0x7f0a0018;
         public static final int tv_name=0x7f0a0005;
-        public static final int tv_port=0x7f0a0013;
+        public static final int tv_port=0x7f0a001a;
         public static final int tv_title=0x7f0a0001;
     }
     public static final class layout {
@@ -94,6 +101,7 @@ public final class R {
         public static final int match=0x7f060004;
         public static final int name=0x7f06000b;
         public static final int neutral=0x7f06000d;
+        public static final int partner=0x7f060012;
         public static final int port=0x7f06000a;
         public static final int preferences=0x7f06000e;
         public static final int requester=0x7f06000c;

@@ -14,14 +14,73 @@
         android:id="@+id/bu_start_over"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/margin_bigline"
+        android:layout_marginBottom="56dp"
+        android:background="@color/salmon"
         android:gravity="center"
         android:minHeight="60dp"
         android:minWidth="150dp"
         android:padding="@dimen/padding"
-        android:background="@color/salmon"
         android:text="@string/start_over"
         android:textColor="@color/white" />
 
+    <TableLayout
+        android:id="@+id/output_table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bu_start_over"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="114dp"
+        android:layout_weight="0"
+        android:padding="15dp" >
+
+        <TableRow android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/partner"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:text="@string/partner"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/partner_name"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textSize="30sp" />
+        </TableRow>
+
+        <TableRow android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/from_match"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:text="@string/from"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/from_name"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textSize="30sp" />
+        </TableRow>
+
+        <TableRow android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/to_match"
+                android:layout_height="wrap_content"
+                android:text="@string/to"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/to_name"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:textSize="30sp" />
+        </TableRow>
+    </TableLayout>
+    
 </RelativeLayout>

@@ -33,4 +33,5 @@
         <item>PMU - Purdue Memorial Union</item>
         <item>PUSH - Purdue Univeristy Student Health Center</item>
     </string-array>
+        <string name="partner">Partner</string>
 </resources>
